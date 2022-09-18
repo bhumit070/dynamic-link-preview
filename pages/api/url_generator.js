@@ -1,15 +1,19 @@
 import puppeteer from "puppeteer"
 export default async function handler(req, res) {
   try {
-    let puppeteer_options = {}
+    let puppeteer_options = {
+    }
     if (process.env.NODE_ENV !== 'development') {
       puppeteer_options = {
-        executablePath: '/vercel/path0/node_modules/puppeteer/.local-chromium/linux-1036745/chrome-linux/chrome'
       }
     }
     const { name = 'Immortal', year = new Date() } = req.query
     const host = process.env.HOST
-    const browser = await puppeteer.launch(puppeteer_options);
+    const browser = await puppeteer.launch({
+      ...puppeteer_options,
+      headless: false,
+      args: ["--no-sandbox"]
+    });
     const page = await browser.newPage();
     await page.goto(`${host}/index.html?name=${name}&year=${year}`);
     const random_image_name = `${Date.now()}-${Math.random()}-${name}-puppeteer.png`
