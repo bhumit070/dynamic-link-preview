@@ -35,6 +35,7 @@ Home.getInitialProps = async function getInitialProps(context) {
   const response = await fetch(`${process.env.HOST}/api/url_generator?name=${name}&year=${year}&host=${context.req.headers.host}`, {
     method: 'GET',
   })
+  console.log(process.env.NODE_ENV)
   const data = await response.json()
   return {
     props: data || {}
