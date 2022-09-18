@@ -8,9 +8,9 @@ export default function Home(props) {
     <div>
       <Head>
         <title>Building this...</title>
-        <meta property="og:title" content="Building this" />
-        <meta property="og:image" content={`https://dynamic-link-preview.vercel.app/pikachu.png`} />
-        <meta property="og:description" content="Building this site will it work ?" />
+        <meta property="og:title" content={props['og:title'] || "Building this"} />
+        <meta property="og:image" content={props['og:image'] || `https://dynamic-link-preview.vercel.app/pikachu.png`} />
+        <meta property="og:description" content={props['og:description'] || "Building this site will it work ?"} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
       </Head>
