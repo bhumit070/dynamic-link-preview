@@ -9,7 +9,7 @@ export default function Home(props) {
       <Head>
         <title>Building this...</title>
         <meta property="og:title" content="Building this" />
-        <meta property="og:image" content={`${props.host}/pikachu.png`} />
+        <meta property="og:image" content={`https://dynamic-link-preview.vercel.app/pikachu.png`} />
         <meta property="og:description" content="Building this site will it work ?" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
