@@ -4,9 +4,9 @@ export default async function handler(req, res) {
     const { name = 'Immortal', year = new Date() } = req.query
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(`${process.env.HOST}/index.html`);
+    await page.goto(`${process.env.HOST}/index.html?name=${name}&year=${year}`);
     const random_image_name = `${Date.now()}-${Math.random()}-${name}-puppeteer.png`
-    await page.screenshot({ path: random_image_name });
+    await page.screenshot({ path: `./public/${random_image_name}` });
     await browser.close();
     return res.status(200).json({
       'og:title': name,
