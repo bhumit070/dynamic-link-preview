@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && cp ./pages/api/index.html ./.next/server/pages/api/index.html",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "next": "12.3.0",
+    "puppeteer": "^17.1.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

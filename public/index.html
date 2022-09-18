@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Title</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background: #333333;
+			color: aliceblue;
+			font-family: 'Fira Code';
+		}
+
+		#body {
+			height: 90vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="body">
+		Your name is &nbsp; <span id="name">Bhoomit</span> &nbsp;
+		Your age is  &nbsp; <span id="age">22</span>
+	</div>
+	<script>
+		const query_params = new URL(window.location.href).searchParams
+
+		const birth_year = query_params.get('year')	
+		const name = query_params.get('name') || 'Immortal'
+		const current_year = new Date().getFullYear()
+		console.log('age is ', current_year - birth_year, name)
+		document.querySelector('#name').textContent = name
+		document.querySelector('#age').textContent = (current_year - birth_year) || 'Are you even human??'
+	</script>	
+</body>
+</html>
