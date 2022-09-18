@@ -14,11 +14,23 @@ export default function Home(props) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
       </Head>
+      {JSON.stringify(props)}
     </div>
   )
 }
 
-export async function getServerSideProps(context) {
+//export async function getServerSideProps(context) {
+//  const { name = '', year = '' } = context.query
+//  const response = await fetch(`${process.env.HOST}/api/url_generator?name=${name}&year=${year}&host=${context.req.headers.host}`, {
+//    method: 'GET',
+//  })
+//  const data = await response.json()
+//  return {
+//    props: data || {}
+//  }
+//}
+
+Home.getInitialProps = async function getInitialProps(context) {
   const { name = '', year = '' } = context.query
   const response = await fetch(`${process.env.HOST}/api/url_generator?name=${name}&year=${year}&host=${context.req.headers.host}`, {
     method: 'GET',
