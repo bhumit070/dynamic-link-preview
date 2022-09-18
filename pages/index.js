@@ -13,10 +13,11 @@ export default function Home({ name, year }) {
 
 export async function getServerSideProps(context) {
   const { name = '', year = '' } = context.query
+  const response = await fetch(`${process.env.HOST}/api/url_generator?name=${name}&year=${year}&host=${context.req.headers.host}`, {
+    method: 'GET',
+  })
+  const data = await response.json()
   return {
-    props: {
-      name,
-      year
-    }
+    props: data || {}
   }
 }
