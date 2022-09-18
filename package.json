@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp ./pages/api/index.html ./.next/server/pages/api/index.html",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
