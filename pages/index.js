@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 
-export default function Home(props) {
+export default function Home({ props }) {
   return (
     <div>
       <Head>
@@ -14,6 +14,7 @@ export default function Home(props) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />
       </Head>
+      {JSON.stringify(props)}
     </div>
   )
 }
