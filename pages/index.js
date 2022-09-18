@@ -2,12 +2,17 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ name, year }) {
+
+export default function Home(props) {
   return (
-    <span>
-      name is {name} &
-      year is {year}
-    </span>
+    <div>
+      <Head>
+        <title>Building this...</title>
+        <meta property="og:title" content="Building this" />
+        <meta property="og:image" content={`${props.host}/pikachu.png`} />
+        <meta property="og:description" content="Building this site will it work ?" />
+      </Head>
+    </div>
   )
 }
 

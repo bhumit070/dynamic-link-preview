@@ -12,7 +12,8 @@ export default async function handler(req, res) {
     return res.status(200).json({
       'og:title': name,
       'og:image': `${host}/${random_image_name}`,
-      'og:description': 'is this cool ?'
+      'og:description': 'is this cool ?',
+      host
     })
   } catch (error) {
     console.log('error in generating image', error)
